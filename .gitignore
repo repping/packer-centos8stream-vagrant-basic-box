@@ -1,0 +1,2 @@
+packer/output-centos-8-stream-builds/*
+packer/packer_cache/*
