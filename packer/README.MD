@@ -3,8 +3,8 @@
 ## TODO:
 - vagrant box
 - vagrant user nopasswd
-- git !!!
+- git - README
 - documenteren
 - secrets eruit?
 - minimal / full / gui versions
-- nieuwe coole features verzinnen! :)
+- roadmap/new features
