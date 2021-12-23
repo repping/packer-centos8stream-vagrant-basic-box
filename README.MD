@@ -1,10 +1,13 @@
-# Vagrant boxes with Packer
+# Description
+Packer setup to create VirtualBox-based Centos 8 Stream images for Vagrant.
+
+# Overview
 
 ## TODO:
 - vagrant box
 - vagrant user nopasswd
-- git - README
-- documenteren
-- secrets eruit?
 - minimal / full / gui versions
-- roadmap/new features
+- git - README
+  - draw.io
+- secrets cleanup
+
