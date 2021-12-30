@@ -4,7 +4,7 @@ Packer setup to create VirtualBox-based Centos 8 Stream images for Vagrant.
 # Overview
 
 ## TODO:
-- vagrant box
+- vagrant box fix
 - vagrant user nopasswd
 - minimal / full / gui versions
 - git - README
