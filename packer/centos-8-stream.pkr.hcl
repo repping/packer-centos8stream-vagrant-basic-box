@@ -20,13 +20,16 @@ source "virtualbox-iso" "centos-8-stream-builds" {
     memory = "8192"
     http_directory = "."
     boot_command = [
-        "<tab><wait>",
+        "<up><tab><wait>",
         " inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/kickstart.cfg<enter>"
     ]
 }
 
-# Ergens moet nog een kickstart file geplaatst worden, nu faalt de installatie.
-
 build {
-    sources = ["sources.virtualbox-iso.centos-8-stream-builds"]
+    sources = [
+        "sources.virtualbox-iso.centos-8-stream-builds"
+    ]
+    post-processor "vagrant" {
+        compression_level = "6"
+    }
 }
