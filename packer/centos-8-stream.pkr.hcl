@@ -29,7 +29,12 @@ build {
     sources = [
         "sources.virtualbox-iso.centos-8-stream-builds"
     ]
-    post-processor "vagrant" {
-        compression_level = "6"
+
+    provisioner "ansible" {
+        playbook_file = "./provisioning_playbook.yml"
     }
+
+    # post-processor "vagrant" {
+    #     compression_level = "6"
+    # }
 }
