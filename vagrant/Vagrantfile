@@ -1,3 +1,8 @@
+# disable shared folder +
+# cleanup vagrantfile!
+
+
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 

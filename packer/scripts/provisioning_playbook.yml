@@ -1,0 +1,77 @@
+---
+- name: "Playbook for provisioning the Packer Centos 8 Stream build"
+  hosts: all
+  become: no
+  # become_user: root
+  
+  tasks:
+    - name: "test"
+      file:
+        path: "/home/vagrant/test_provisioning_playbook"
+        state: touch
+        mode: '0660'
+
+    - name: "debug messages to see if it is being logged in the Packer output"
+      debug:
+        msg: "Love the path not the destination."
+
+# update all packages
+    - name: upgrade all packages
+      dnf:
+        name: "*"
+        state: latest
+
+
+# create vagrant user + nopasswd
+    - name: Add the Vagrant user
+      user:
+        name: vagrant
+        password: "{{ 'vagrant' | password_hash('sha512') }}" # SECRET!
+        group: wheel
+
+    - name: create sudoers file for the vagrant user
+      file:
+        path: /etc/sudoers.d/vagrant
+        state: touch
+        mode: '0440'
+
+    - name:
+      lineinfile:
+        dest: /etc/sudoers.d/vagrant
+        line: "vagrant ALL=(ALL) NOPASSWD:ALL"
+
+    - name:
+      lineinfile:
+        dest: /etc/sudoers.d/vagrant
+        line: "vagrant ALL=(ALL) NOPASSWD:ALL"
+
+    # disable root login over ssh
+    - name: Disable root Login
+      lineinfile:
+            dest: /etc/ssh/sshd_config
+            regexp: '^PermitRootLogin'
+            line: "PermitRootLogin no"
+            state: present
+            backup: yes
+      become: yes
+      notify:
+        - restart ssh
+
+    # Cleanup Vagrant home folder and /tmp
+
+    - name: Clean up vagrant homedir
+      shell:
+        cmd: /bin/rm -rf /home/vagrant/*
+
+    - name: Clean up /tmp
+      shell:
+        cmd: /bin/rm -rf /tmp/*
+
+    # more?
+
+# Handlers
+  handlers:
+    - name: restart ssh
+      systemd:
+        name: sshd
+        state: restarted
