@@ -1,5 +1,6 @@
 # keeps ovf AND vagrant box
 # check why vagrant home and tmp are not empty in box
+# cleanup + standardized file names
 
 packer {
     required_plugins {

@@ -2,7 +2,7 @@
 - name: "Playbook for provisioning the Packer Centos 8 Stream build"
   hosts: all
   become: no
-  # become_user: root
+  become_user: root
   
   tasks:
     - name: "test"
@@ -34,11 +34,6 @@
         path: /etc/sudoers.d/vagrant
         state: touch
         mode: '0440'
-
-    - name:
-      lineinfile:
-        dest: /etc/sudoers.d/vagrant
-        line: "vagrant ALL=(ALL) NOPASSWD:ALL"
 
     - name:
       lineinfile:
