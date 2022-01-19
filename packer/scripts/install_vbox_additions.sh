@@ -1,11 +1,12 @@
 #!/bin/bash
 # Required for installing VBoxGuestAdditions
-sudo dnf install -y bzip2 tar
+dnf install -y gcc make perl kernel-devel-$(uname -r) kernel-headers-$(uname -r) bzip2 dkms elfutils-libelf-devel
+export KERN_DIR=/usr/src/kernels/$(uname -r)
 
 # Installation
-sudo mkdir /home/vagrant/VBoxGuestAdditions
-sudo mount -o loop,ro VBoxGuestAdditions.iso /home/vagrant/VBoxGuestAdditions
-sh /home/vagrant/VBoxGuestAdditions/VBoxLinuxAdditions.run
-rm /home/vagrant/VBoxGuestAdditions.iso
-sudo umount /home/vagrant/VBoxGuestAdditions
-sudo rmdir /home/vagrant/VBoxGuestAdditions
+mkdir -p /tmp/VBoxGuestAdditions
+mount -o loop,ro /tmp/VBoxGuestAdditions.iso /tmp/VBoxGuestAdditions
+sh /tmp/VBoxGuestAdditions/VBoxLinuxAdditions.run
+rm /tmp/VBoxGuestAdditions.iso
+umount /tmp/VBoxGuestAdditions
+rmdir /tmp/VBoxGuestAdditions

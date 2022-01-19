@@ -10,10 +10,10 @@
         msg: "path >= dest"
 
 # update all packages
-    - name: upgrade all packages
-      dnf:
-        name: "*"
-        state: latest
+#    - name: upgrade all packages
+#      dnf:
+#        name: "*"
+#        state: latest
 
 
 # create vagrant user + nopasswd

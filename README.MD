@@ -26,7 +26,7 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 
 - Variables
 - packer
-  - fix: VBoxGuesAdditions wont install
+  - text based non gui install
   - multiple build types
 - Vagrant
   - local box versioning
@@ -35,4 +35,15 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 - Secret management
 - Integrate into CI/CD
 
-
+# Changelog:
+- v0.1 - 19 jan 2022
+  - packer:
+    - fixed Vagrant shared folder
+    - installer now runs in text-based mode instead of graphical mode
+    - removed vagrant user from kickstart.cfg
+    - the build will keep the OVF+disk file that are used to create the vagrant box file
+    - provisioning will no longer update ALL packages
+  - vagrant:
+    - fixed Vagrant shared folder
+- v0.0
+  - init (see commits)
