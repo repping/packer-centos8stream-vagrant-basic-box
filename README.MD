@@ -24,16 +24,16 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 
 # Roadmap / fixes / improvements:
 
-- Variables
+- Variables:
+  - convenience
+  - secret management
 - packer
-  - text based non gui install
   - multiple build types
 - Vagrant
   - local box versioning
   - multi box setup
 - Publish to artifact repo
-- Secret management
-- Integrate into CI/CD
+- CI/CD
 
 # Changelog:
 - v0.1 - 19 jan 2022
