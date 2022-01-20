@@ -38,7 +38,7 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 # Changelog:
 - v0.1 - 19 jan 2022
   - packer:
-    - fixed Vagrant shared folder
+    - fixed Oracle VirtualBox Guest Additions not working/installing
     - installer now runs in text-based mode instead of graphical mode
     - removed vagrant user from kickstart.cfg
     - the build will keep the OVF+disk file that are used to create the vagrant box file
