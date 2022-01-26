@@ -24,19 +24,17 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 
 # Roadmap / fixes / improvements:
 
-- Variables:
-  - convenience
-  - secret management
-- packer
-  - multiple build types
-- Vagrant
-  - local box versioning
-  - multi box setup
-- Publish to artifact repo
-- CI/CD
+- packer Variables-file
+- vagrant variables-file
+- kickstart root pw rorate in provisioning
+  - 1 weak temporary root password that only exists while building the image
+  - rotating password: pw as variable in packerfile, expose to provision script via provisioning command for script? 
+- update README + svg
+- cleanup and publish
+- Rebuild/Fork project to work with a cloud provider so continue developing after swithc to Macbook M1?
 
 # Changelog:
-- v0.1 - 19 jan 2022
+- v0.1
   - packer:
     - fixed Oracle VirtualBox Guest Additions not working/installing
     - installer now runs in text-based mode instead of graphical mode
