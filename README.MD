@@ -5,17 +5,16 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 - VirtualBox, Packer and Vagrant are installed under Windows.
 
 # Overview
-![overview_diagram](README.overview_diagram.drawio.svg)
+![overview_diagram](README.drawio.svg)
 
 
 # HOWTO: Build the box
 
 1. Navigate to the packer folder
-2. Edit centos-8-stream.pkr.hcl and configure _iso_url_ to point to the centos-8-stream.iso. For example:  
-`iso_url = "file://../../images/CentOS-Stream-8-x86_64-latest-dvd1.iso"`
+2. Edit the `variables.pkr.hcl` and `packerfile.pkr.hcl` to fit your needs.
 3. Start the Packer build with:  
-`packer build centos-8-stream.pkr.hcl`
-4. Created images and boxes will be placed in: _packer-centos8stream-vagrant-basic-box/packer/output-centos-8-stream-builds/..._
+`packer build .`
+4. Created images and boxes will be placed in: `<packer_folder>/builds/`
 5. Navigate to the vagrant folder
 6. Start the Vagrant box with:  
 `vagrant up`
@@ -24,16 +23,23 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 
 # Roadmap / fixes / improvements:
 
-- packer Variables-file
+- packer Variables
+  - var for rootpw after build completes
 - vagrant variables-file
 - kickstart root pw rorate in provisioning
   - 1 weak temporary root password that only exists while building the image
   - rotating password: pw as variable in packerfile, expose to provision script via provisioning command for script? 
-- update README + svg
-- cleanup and publish
+- update README + svg + clean packer_cache!
 - Rebuild/Fork project to work with a cloud provider so continue developing after swithc to Macbook M1?
 
 # Changelog:
+- v0.2
+  - packer:
+    - added variables and variables.pkr.hcl file
+  - vagrant:
+    - updated to match changes in packer configuration
+  - general:
+    - streamlined filenames and cleaned up project files
 - v0.1
   - packer:
     - fixed Oracle VirtualBox Guest Additions not working/installing

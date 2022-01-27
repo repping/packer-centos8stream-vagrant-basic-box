@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|                                                      # 2 =?
 
-  config.vm.box         = "packer_centos-8-stream-builds_virtualbox"
-  config.vm.box_url     = "file://../packer/packer_centos-8-stream-builds_virtualbox.box"   
+  config.vm.box         = "Centos8Stream.box"
+  config.vm.box_url     = "file://../packer/builds/Centos8Stream.box"   
   # config.vm.box_version = ">=0"                                                       # Does not work yet with local builds
   config.vm.guest       = "linux"
   config.vm.hostname    = "centos8stream"

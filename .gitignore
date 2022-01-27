@@ -1,4 +1,6 @@
+.gitignore
 packer/output-centos-8-stream-builds/*
 packer/packer_cache
+packer/output-Centos8Stream
 *.box
 vagrant/.vagrant
