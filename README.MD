@@ -23,8 +23,8 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 
 # Roadmap / fixes / improvements:
 
-- packer Variables
-  - var for rootpw after build completes
+- packer
+  - update all except kernel*
 - vagrant variables-file
 - kickstart root pw rorate in provisioning
   - 1 weak temporary root password that only exists while building the image

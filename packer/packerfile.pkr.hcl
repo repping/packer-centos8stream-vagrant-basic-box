@@ -41,7 +41,8 @@ build {
    provisioner "ansible-local" {
        playbook_file     = "scripts/provision_playbook.yml"
        staging_directory = "/tmp"
-       command           = "/usr/bin/ansible-playbook -e rootPasswordAfterBuild=$(var.rootPasswordAfterBuild)"
+       extra_arguments   = ["--extra-vars", "\"rootPassword=${var.rootPasswordAfterBuild}\""]
+       command           = "/usr/bin/ansible-playbook"
    }
 
     provisioner "shell" {

@@ -1,7 +1,7 @@
 ---
 - name: "Playbook for provisioning the Packer Centos 8 Stream build"
   hosts: all
-  become: no
+  become: true
   become_user: root
   
   tasks:
@@ -50,7 +50,14 @@
       user:
         name: root
         update_password: always
-        password: "{{ rootPasswordAfterBuild | password_hash('sha512')}}"
+        password: "{{ rootPassword | password_hash('md5') }}"
+
+    # - name: change root pw with sh cmd
+    #   expect:
+    #     command: passwd -f root
+    #     responses:
+    #       (?i)password: "{{ rootPassword }}"
+    #       (?i)password: "{{ rootPassword }}"          
 
     # Cleanup Vagrant home folder and /tmp
 

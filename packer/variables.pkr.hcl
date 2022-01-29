@@ -5,5 +5,8 @@ variable "cpu"                    {default = "2"}                            # C
 variable "memory"                 {default = "4096"}                         # Memory available to VM during build. 
 
 # Post build variables:
-variable "rootPasswordAfterBuild" {default = "passwordforroot"}              # This is the root password when the build has finished.
+variable "rootPasswordAfterBuild" {
+    default = "passwordforroot"                                              # This is the root password when the build has finished.
+    type = string
+}
 variable "vagrantBoxOutputFile"   {default = "./builds/Centos8Stream.box"}   # This is where the image will be located when the build has finished.
