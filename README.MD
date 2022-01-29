@@ -29,7 +29,7 @@ Packer setup to create a VirtualBox-based Centos 8 Stream images for Vagrant und
 - kickstart root pw rorate in provisioning
   - 1 weak temporary root password that only exists while building the image
   - rotating password: pw as variable in packerfile, expose to provision script via provisioning command for script? 
-- update README + svg + clean packer_cache!
+- update README + svg + clean packer_cache! + vagrant box remove
 - Rebuild/Fork project to work with a cloud provider so continue developing after swithc to Macbook M1?
 
 # Changelog:

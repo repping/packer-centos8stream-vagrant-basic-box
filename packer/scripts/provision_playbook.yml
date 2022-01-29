@@ -46,6 +46,12 @@
       notify:
         - restart ssh
 
+    - name: Change pw for root
+      user:
+        name: root
+        update_password: always
+        password: "{{ rootPasswordAfterBuild | password_hash('sha512')}}"
+
     # Cleanup Vagrant home folder and /tmp
 
     #replace with file module

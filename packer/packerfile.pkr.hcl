@@ -11,8 +11,8 @@ source "virtualbox-iso" "Centos8Stream" {
     guest_os_type        = "RedHat_64"
     iso_url              = "${var.isoPath}"
     iso_checksum         = "${var.isoChecksum}"
-    ssh_username         = "${var.sshUser}"
-    ssh_password         = "${var.sshUserPassword}"
+    ssh_username         = "root"
+    ssh_password         = "rootpassword"                                # Must match (crypted) pw in the kickstart-file!
     ssh_timeout          = "15m"
     shutdown_command     = "shutdown now"
     disk_size            = "20000"
@@ -41,7 +41,7 @@ build {
    provisioner "ansible-local" {
        playbook_file     = "scripts/provision_playbook.yml"
        staging_directory = "/tmp"
-       command           = "/usr/bin/ansible-playbook"
+       command           = "/usr/bin/ansible-playbook -e rootPasswordAfterBuild=$(var.rootPasswordAfterBuild)"
    }
 
     provisioner "shell" {
