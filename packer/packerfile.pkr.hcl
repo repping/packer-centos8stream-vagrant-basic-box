@@ -13,7 +13,7 @@ source "virtualbox-iso" "Centos8Stream" {
     iso_checksum         = "${var.isoChecksum}"
     ssh_username         = "root"
     ssh_password         = "rootpassword"                                # Must match (crypted) pw in the kickstart-file!
-    ssh_timeout          = "15m"
+    ssh_timeout          = "30m"
     shutdown_command     = "shutdown now"
     disk_size            = "20000"
     cpus                 = "${var.cpu}"
